@@ -13,6 +13,16 @@
 
     <link rel="stylesheet" href="./page-css.css">
 
+    <style>
+        .form_cp82xy__form_made_by{
+            display: none !important;
+        }
+
+        .table_2gdc7x__table_made_by{
+            display: none !important;
+        }
+    </style>
+
     <!--INCLUDE JavaScript.html FILE-->
 </head>
 
@@ -22,5 +32,48 @@
 
     <script src="https://sheetdb.io/s/t/yeenoiq98rvnl.js"></script>
 </body>
+
+<script>
+    /*
+      *THIS FUNCTION CALL THE getData() FUNCTION IN THE Code.gs FILE, 
+      *AND PASS RETURNED DATA TO showData() FUNCTION
+      */
+        google.script.run.withSuccessHandler(showData).getData();
+
+        //THIS FUNCTION GENERATE THE DATA TABLE FROM THE DATA ARRAY
+        function showData(dataArray) {
+            $(document).ready(function () {
+                $('#data-table').DataTable({
+                    data: dataArray,
+                    //CHANGE THE TABLE HEADINGS BELOW TO MATCH WITH YOUR SELECTED DATA RANGE
+                    columns: [
+                        { "title": "First Name" },
+                        { "title": "Last Name" },
+                        { "title": "Role" },
+                        { "title": "Time & Date" }
+                    ]
+                });
+            });
+        }
+</script>
+
+<script>
+    document.getElementById("btn").addEventListener("click", doStuff);
+
+        function doStuff() {
+
+            var userInfo = {};
+
+            userInfo.firstName = document.getElementById("fn").value;
+            userInfo.lastName = document.getElementById("ln").value;
+            userInfo.app = document.getElementById("app").value;
+
+            google.script.run.userClicked(userInfo);
+            document.getElementById("fn").value = "";
+            document.getElementById("ln").value = "";
+            document.getElementById("app").value = "";
+
+        }
+</script>
 
 </html>
