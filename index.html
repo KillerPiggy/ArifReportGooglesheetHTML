@@ -14,12 +14,50 @@
     <link rel="stylesheet" href="./page-css.css">
 
     <style>
-        .form_cp82xy__form_made_by{
-            display: none !important;
+        .table_0sj6mr__table_made_by {
+            display: none;
         }
 
-        .table_2gdc7x__table_made_by{
-            display: none !important;
+        .table_0sj6mr__table_container {
+            width: 30% !important;
+            height: 75px !important;
+            margin: auto !important;
+        }
+
+        #table_0sj6mr__table_scroll {
+            max-width: 100% !important;
+            max-height: 102px !important;
+            overflow: hidden !important;
+        }
+
+        .sortable {
+            border-left: none !important;
+            text-align: center !important;
+        }
+
+        .table_0sj6mr__table {
+            text-align: center !important;
+        }
+
+        #table_0sj6mr__table_content {
+            position: relative;
+            margin-top: 200px;
+        }
+
+        th {
+            background: transparent !important;
+            border: none;
+            font-size: 21px;
+            text-align: left !important;
+        }
+
+        table {
+            border: none !important;
+        }
+
+        #table_0sj6mr_form_search {
+            position: absolute;
+            top: 5px;
         }
     </style>
 
@@ -28,9 +66,8 @@
 
 <body>
 
-
-
-    <script src="https://sheetdb.io/s/t/yeenoiq98rvnl.js"></script>
+    <script src="https://sheetdb.io/s/t/ck5gbsf453ig5.js"></script>
+    <!-- <script src="https://sheetdb.io/s/t/yeenoiq98rvnl.js"></script> -->
 </body>
 
 <script>
@@ -38,42 +75,39 @@
       *THIS FUNCTION CALL THE getData() FUNCTION IN THE Code.gs FILE, 
       *AND PASS RETURNED DATA TO showData() FUNCTION
       */
-        google.script.run.withSuccessHandler(showData).getData();
+    google.script.run.withSuccessHandler(showData).getData();
 
-        //THIS FUNCTION GENERATE THE DATA TABLE FROM THE DATA ARRAY
-        function showData(dataArray) {
-            $(document).ready(function () {
-                $('#data-table').DataTable({
-                    data: dataArray,
-                    //CHANGE THE TABLE HEADINGS BELOW TO MATCH WITH YOUR SELECTED DATA RANGE
-                    columns: [
-                        { "title": "First Name" },
-                        { "title": "Last Name" },
-                        { "title": "Role" },
-                        { "title": "Time & Date" }
-                    ]
-                });
+    //THIS FUNCTION GENERATE THE DATA TABLE FROM THE DATA ARRAY
+    function showData(dataArray) {
+        $(document).ready(function () {
+            $('#data-table').DataTable({
+                data: dataArray,
+                //CHANGE THE TABLE HEADINGS BELOW TO MATCH WITH YOUR SELECTED DATA RANGE
+                columns: [
+                    { "title": "Test Cell" }
+                ]
             });
-        }
+        });
+    }
 </script>
 
 <script>
     document.getElementById("btn").addEventListener("click", doStuff);
 
-        function doStuff() {
+    function doStuff() {
 
-            var userInfo = {};
+        var userInfo = {};
 
-            userInfo.firstName = document.getElementById("fn").value;
-            userInfo.lastName = document.getElementById("ln").value;
-            userInfo.app = document.getElementById("app").value;
+        userInfo.firstName = document.getElementById("fn").value;
+        userInfo.lastName = document.getElementById("ln").value;
+        userInfo.app = document.getElementById("app").value;
 
-            google.script.run.userClicked(userInfo);
-            document.getElementById("fn").value = "";
-            document.getElementById("ln").value = "";
-            document.getElementById("app").value = "";
+        google.script.run.userClicked(userInfo);
+        document.getElementById("fn").value = "";
+        document.getElementById("ln").value = "";
+        document.getElementById("app").value = "";
 
-        }
+    }
 </script>
 
 </html>
